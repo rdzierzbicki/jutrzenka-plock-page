@@ -1,10 +1,10 @@
 :root {
-    --color-primary: #008DCE;
-    --color-primary-dark: #00415E;
+    --color-primary: #008dce;
+    --color-primary-dark: rgb(0, 65, 94);
     --color-primary-light: #BEEAF5;
 
     --color-secondary: #9ED9F9;
-    --color-dark: #2B2A2A;
+    --color-dark: rgb(43, 42, 42);
     --color-light: #FFFFFF;
 
     --color-text: #FFFFFF;
@@ -16,6 +16,7 @@
     --radius-sm: 6px;
     --radius-md: 12px;
 
+    --space-xs: 5px;
     --space-sm: 10px;
     --space-md: 15px;
     --space-lg: 20px;

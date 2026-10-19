@@ -1,0 +1,145 @@
+---
+const { variant = 'default' } = Astro.props;
+
+import Button from './Button.astro';
+
+import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+
+import lcklogo from '../assets/lck-logo.png';
+import logo from '../assets/logo.png'
+
+---
+
+<div class={`match-card ${variant}`}>
+    <div class="card-header">
+        <span class="date">06/10 Sobota, g. 19:00</span>
+        <div class="league-logo"> 
+            <Image src={lcklogo} alt="Logo Ligi Centralnej Kobiet" width="80"/>
+        </div>
+    </div>
+    <div class="teams">
+        <div class="team-block">
+            <Image src={logo} alt="Logo Klubu" width="90"/>
+            <span class="team-name">MMKS JUTRZENKA PŁOCK</span>
+        </div>
+        <div class="vs-block">
+            VS
+        </div>
+        <div class="team-block">
+            <Image src={logo} alt="Logo Klubu" width="90"/>
+            <span class="team-name">SMS KWIDZYN</span>
+        </div>
+    </div>
+    <div class="card-footer">
+        <div class="card-info">
+            <span>Hala ZST 70</span>
+            <span>ul. Kilińskiego 4a, Płock</span>
+        </div>
+        <div class="card-buttons">
+            <Button href="#" variant="primary" icon="lucide:ticket">
+                KUP BILET
+            </Button>
+            <Button href="#" variant="outline" icon="lucide:tv">
+                OGLĄDAJ
+            </Button>
+        </div>
+    </div>
+</div>
+
+<style>
+    .match-card {
+        display: flex;
+        flex-direction: column;
+
+        background-color: color-mix(in srgb, var(--color-dark) 40%, transparent);
+        backdrop-filter: blur(8px);
+
+        border: 2px solid color-mix(in srgb, var(--color-light) 20%, transparent);
+        border-radius: var(--radius-md);
+
+        color: var(--color-light);
+        
+    }
+
+    .card-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px 0px;
+    }
+
+    .date {
+        background-color: var(--color-primary);
+        padding: 0px var(--space-lg);
+        border-radius: 0px var(--radius-sm) var(--radius-sm) 0px;
+        font-size: var(--text-base);
+        display: inline-flex;
+        align-items: center;
+        min-width: 240px;
+    }
+
+    .league-logo {
+        padding: 0px var(--space-lg);
+    }
+
+    .teams {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-lg);
+    }
+
+    .team-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-sm);
+    }
+
+    .team-name {
+        display: none;
+    }
+
+    .card-footer {
+        display: flex;
+        flex-direction: row;
+
+        padding: var(--space-lg);
+
+        justify-content: space-between;
+    }
+
+    .card-info {
+        display: flex;
+        flex-direction: column;
+        font-size: var(--text-xs);
+        font-weight: var(--weight-regular);
+    }
+
+    .card-buttons {
+        display: flex;
+        gap: var(--space-sm);
+    }
+
+    .vs-block {
+        font-size: var(--text-2xl);
+        font-weight: var(--weight-bold);
+        color: color-mix(in srgb, var(--color-light) 50%, transparent);
+    }
+
+    @media (min-width: 1024px) {
+        .team-name {
+            display: inline-flex;
+        }
+
+        .teams {
+            padding: 0px var(--space-lg);
+        }
+
+        .card-info {
+            font-size: var(--text-sm);
+        }
+    }
+</style>

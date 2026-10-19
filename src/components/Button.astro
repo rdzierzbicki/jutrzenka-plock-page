@@ -1,0 +1,71 @@
+---
+
+const { href = "#", variant = "primary", icon = "lucide:ticket"} = Astro.props;
+
+import { Icon } from 'astro-icon/components';
+---
+
+<a href={href} class={`base-btn btn-${variant}`}>
+    <Icon name={icon} size={16} />
+    <slot/>
+</a>
+
+<style>
+    .base-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: var(--space-sm) var(--space-md);
+        font-weight: var(--weight-medium);
+        text-decoration: none;
+        text-transform: uppercase;
+        border-radius: var(--radius-sm);
+        gap: var(--space-sm);
+        max-height: 36px;
+        font-size: var(--text-xs);
+    }
+
+    .btn-primary {
+        background-color: var(--color-primary);
+        color: var(--color-light);
+    }
+
+    .btn-primary:hover {
+
+    }
+
+    .btn-dark {
+        background-color: var(--color-dark);
+        color: var(--color-light);
+    }
+
+    .btn-dark:hover {
+
+    }
+
+    .btn-outline {
+        background-color: transparent;
+        color: var(--color-light);
+        border: 2px solid var(--color-light);
+    }
+
+    .btn-outline:hover {
+
+    }
+
+    .btn-outline-dark {
+        background-color: transparent;
+        color: var(--color-dark);
+        border: 2px solid var(--color-dark);
+    }
+
+    .btn-outline-dark:hover {
+
+    }
+
+    @media (min-width: 1024px) {
+        .base-btn {
+            font-size: var(--text-sm);
+        }
+    }
+</style>
