@@ -1,32 +1,31 @@
 ---
-import SectionHeader from "./SectionHeader.astro";
+import SectionHeader from "@/components/SectionHeader.astro";
 ---
 
 
-<section class="schedule-section">
-    <div class="schedule-content container">
-        <SectionHeader title="Terminarz" kicker="Co u nas?"/>
+<section class="standings-section">
+    <div class="standings-content container">
+        <SectionHeader title="Tabela ligowa" kicker="Jak nam idzie?" variant="light"/>
     </div>
     
 </section>
 
 <style>
-    .schedule-section {
+    .standings-section {
         display: flex;
         background-image: 
             linear-gradient(
                 color-mix(in srgb, var(--color-primary) 90%, transparent),
                 color-mix(in srgb, var(--color-primary) 90%, transparent)
             ),
-            url('../assets/hero-bg.jpg');
+            url('@/assets/hero-bg.jpg');
             
         background-size: cover;
         background-position: center;
     }
 
-    .schedule-content {
+    .standings-content {
         display: flex;
         flex-direction: column;
-        justify-content: end;
     }
 </style>
