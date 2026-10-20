@@ -1,11 +1,31 @@
 ---
 import SectionHeader from "@/components/SectionHeader.astro";
+import Button from '@/components/Button.astro'
+import SponsorCard from "@/components/SponsorCard.astro";
+
 ---
 
 
 <section class="sponsors-section">
+    
     <div class="sponsors-content container">
         <SectionHeader title="Sponsorzy" kicker="Kto nas wspiera?" variant="light2"/>
+        <div class="sponsors-bar">
+            <Button href="#" variant="icon" icon="lucide:arrow-left"/>
+
+            <div class="sponsors">
+                <SponsorCard/>
+                <SponsorCard/>
+                <SponsorCard/>
+                <SponsorCard/>
+                <SponsorCard/>
+                <SponsorCard/>
+            </div>
+            
+        
+            <Button href="#" variant="icon" icon="lucide:arrow-right"/>
+        </div>
+        
     </div>
     
 </section>
@@ -19,5 +39,22 @@ import SectionHeader from "@/components/SectionHeader.astro";
     .sponsors-content {
         display: flex;
         flex-direction: column;
+        gap: var(--space-lg);
+    }
+
+    .sponsors-bar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .sponsors {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        gap: var(--space-md);
     }
 </style>

@@ -1,0 +1,26 @@
+---
+import { Image } from 'astro:assets';
+---
+
+<div class="sponsor-card">
+    
+</div>
+
+<style>
+    .sponsor-card {
+        display: flex;
+        height: 60px;
+        width: 110px;
+
+        border-radius: var(--radius-sm);
+
+        background-color: color-mix(in srgb, var(--color-light) 20%, transparent);
+    }
+
+    @media (min-width: 1024px) {
+        .sponsor-card {
+            height: 80px;
+            width: 160px;
+        }
+    }
+</style>

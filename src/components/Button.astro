@@ -25,7 +25,7 @@ import { Icon } from 'astro-icon/components';
         font-size: var(--text-xs);
     }
 
-    .btn-primary {
+    .btn-primary, .btn-icon {
         background-color: var(--color-primary);
         color: var(--color-light);
     }
@@ -63,9 +63,19 @@ import { Icon } from 'astro-icon/components';
 
     }
 
+    .btn-icon {
+        display: none;
+        padding: var(--space-sm);
+        width: 40px;
+    }
+    
     @media (min-width: 1024px) {
         .base-btn {
             font-size: var(--text-sm);
+        }
+
+        .btn-icon {
+            display: inline-flex;
         }
     }
 </style>
