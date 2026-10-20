@@ -1,0 +1,47 @@
+---
+const { title = "Header", kicker = "Kicker", variant = "light" } = Astro.props;
+---
+
+<div class={`section-header variant-${variant}`}>
+    <span class="kicker">{kicker}</span>
+    <h2 class="title">{title}</h2>
+</div>
+
+<style>
+    .section-header {
+        display: flex;
+        flex-direction: column;
+        border-bottom: 4px solid;
+        letter-spacing: 10%;
+        font-style: italic;
+        text-transform: uppercase;
+        font-weight: var(--weight-bold);
+        
+        width: 360px;
+    }
+
+    .variant-light {
+        color: var(--color-light);
+        border-bottom-color: var(--color-primary-dark);
+    }
+
+    .variant-light2 {
+        color: var(--color-light);
+        border-bottom-color: var(--color-primary);
+    }
+
+    .variant-dark {
+        color: var(--color-primary-dark);
+        border-bottom-color: var(--color-primary);
+    }
+
+    .kicker {
+        font-size: var(--text-base);
+    }
+
+    .title {
+        font-size: var(--text-2xl);
+        
+    }
+
+</style>

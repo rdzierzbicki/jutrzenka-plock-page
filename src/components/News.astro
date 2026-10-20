@@ -1,0 +1,31 @@
+---
+import SectionHeader from "./SectionHeader.astro";
+---
+
+
+<section class="news-section">
+    <div class="news-content container">
+        <SectionHeader title="Aktualności" kicker="Co się dzieje?" variant="dark"/>
+    </div>
+    
+</section>
+
+<style>
+    .news-section {
+        display: flex;
+        background-image: 
+            linear-gradient(
+                color-mix(in srgb, var(--color-secondary) 90%, transparent),
+                color-mix(in srgb, var(--color-secondary) 90%, transparent)
+            ),
+            url('../assets/hero-bg.jpg');
+            
+        background-size: cover;
+        background-position: center;
+    }
+
+    .news-content {
+        display: flex;
+        flex-direction: column;
+    }
+</style>

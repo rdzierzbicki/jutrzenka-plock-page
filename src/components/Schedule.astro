@@ -1,0 +1,32 @@
+---
+import SectionHeader from "./SectionHeader.astro";
+---
+
+
+<section class="schedule-section">
+    <div class="schedule-content container">
+        <SectionHeader title="Terminarz" kicker="Co u nas?"/>
+    </div>
+    
+</section>
+
+<style>
+    .schedule-section {
+        display: flex;
+        background-image: 
+            linear-gradient(
+                color-mix(in srgb, var(--color-primary) 90%, transparent),
+                color-mix(in srgb, var(--color-primary) 90%, transparent)
+            ),
+            url('../assets/hero-bg.jpg');
+            
+        background-size: cover;
+        background-position: center;
+    }
+
+    .schedule-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+    }
+</style>
