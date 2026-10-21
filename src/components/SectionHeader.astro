@@ -13,11 +13,11 @@ const { title = "Header", kicker = "Kicker", variant = "light" } = Astro.props;
         flex-direction: column;
         border-bottom: 4px solid;
         letter-spacing: 10%;
+        line-height: 1.2;
         font-style: italic;
         text-transform: uppercase;
         font-weight: var(--weight-bold);
-        
-        width: 360px;
+        width: 100%;
     }
 
     .variant-light {
@@ -42,6 +42,12 @@ const { title = "Header", kicker = "Kicker", variant = "light" } = Astro.props;
     .title {
         font-size: var(--text-2xl);
         
+    }
+
+    @media (min-width: 1024px) {
+        .section-header {
+            width: 360px;
+        }
     }
 
 </style>

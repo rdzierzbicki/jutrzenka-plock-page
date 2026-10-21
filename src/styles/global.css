@@ -31,12 +31,12 @@
     --text-2xl: 2rem;      /* 32px, nagłówki sekcji */
     --text-display: clamp(8rem, 6rem + 8vw, 10.875rem); /* 128-174px, numery */
 
+    --weight-light: 300;
     --weight-regular: 400;
     --weight-medium: 500;
+    --weight-semibold: 600;
     --weight-bold: 700;
-
     --tracking-wide: 0.1em;
-
     --container-max: 1280px;
 }
 
@@ -51,6 +51,10 @@ body {
     font-family: var(--font-body);
     font-size: var(--text-base);
     line-height: 1.5;
+    font-weight: var(--weight-regular);
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 img {
@@ -67,5 +71,11 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     max-width: var(--container-max);
     margin-inline: auto;
-    padding: var(--space-lg);
+    padding: var(--space-sm);
+}
+
+@media (min-width: 1024px) {
+    .container {
+        padding: var(--space-lg);
+    }
 }
