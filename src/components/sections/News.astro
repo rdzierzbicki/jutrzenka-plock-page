@@ -1,11 +1,15 @@
 ---
 import SectionHeader from "@/components/SectionHeader.astro";
+import NewsCard from "@/components/NewsCard.astro";
 ---
 
 
 <section class="news-section">
     <div class="news-content container">
         <SectionHeader title="Aktualności" kicker="Co się dzieje?" variant="dark"/>
+        <NewsCard />
+        <NewsCard/>
+        <NewsCard/>
     </div>
     
 </section>
@@ -27,5 +31,6 @@ import SectionHeader from "@/components/SectionHeader.astro";
     .news-content {
         display: flex;
         flex-direction: column;
+        gap: var(--space-md);
     }
 </style>
