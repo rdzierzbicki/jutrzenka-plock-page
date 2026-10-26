@@ -32,7 +32,11 @@ const {
     .news-card {
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
+
         width: 100%;
+        height: 100%;
+
         border-radius: var(--radius-md);
         overflow: hidden;
         color: var(--color-light);
@@ -46,7 +50,6 @@ const {
             url('@/assets/hero-bg.jpg');
         background-size: cover;
         background-position: center;
-        justify-content: space-between;
     }
 
     .card-header {
@@ -75,36 +78,27 @@ const {
 
     .info-content {
         font-weight: var(--weight-semibold);
-
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
     }
 
-    .news-card--secondary {
-        height: 140px;
-    }
     .news-card--secondary .info-block {
         min-height: 55px;
     }
 
     @media (min-width: 1024px) {
-        .news-card--secondary {
-            height: 170px;
-        }
+        
         .news-card--secondary .info-block {
             min-height: 70px;
         }
     }
 
-    .news-card--main {
-        height: 220px;
-    }
     .news-card--main .info-block {
         min-height: 70px;
     }
 
     @media (min-width: 1024px) {
-        .news-card--main {
-            height: 360px; /* Duży kloc po lewej stronie siatki */
-        }
+        
         .news-card--main .card-header {
             font-size: var(--text-sm);
             padding: var(--space-md);
