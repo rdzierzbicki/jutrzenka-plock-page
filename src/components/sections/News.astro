@@ -10,23 +10,23 @@ import NewsCard from "@/components/NewsCard.astro";
         
         <div class="news-grid">
             <div class="grid-main">
-                <NewsCard/>
+                <NewsCard variant="main"/>
             </div>
 
             <div class="grid-sub">
-                <NewsCard/>
+                <NewsCard variant="secondary"/>
             </div>
 
             <div class="grid-sub">
-                <NewsCard/>
+                <NewsCard variant="secondary"/>
             </div>
 
             <div class="grid-sub desktop-only">
-                <NewsCard/>
+                <NewsCard variant="secondary"/>
             </div>
 
             <div class="grid-sub desktop-only">
-                <NewsCard/>
+                <NewsCard variant="secondary"/>
             </div>
         </div>
     </div>
@@ -63,7 +63,7 @@ import NewsCard from "@/components/NewsCard.astro";
 
     .grid-main {
         grid-column: span 2;
-        height: 190px; /* TODO: need to refactor card */
+        height: 170px; TODO: need to refactor card
     }
 
     .grid-sub {
@@ -76,9 +76,10 @@ import NewsCard from "@/components/NewsCard.astro";
 
     @media (min-width: 1024px) {
         .news-grid {
-            grid-template-columns: 1.3fr 1fr 1fr;
-            grid-template-rows: 175px 175px;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 210px 210px;
             gap: var(--space-lg);;
+            padding: 0 var(--space-xl);
         }
 
         .grid-main {

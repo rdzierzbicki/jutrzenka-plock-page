@@ -11,7 +11,7 @@ const {
     variant = 'secondary',
     author = '@jutrzenka-plock',
     date = '24/10/2026',
-    content = 'Więcej informacji na facebooku Jutrzenka Płock...',
+    content = 'Więcej informacji na facebooku Jutrzenka Płock Więcej informacji na facebooku Jutrzenka Płock Więcej informacji na facebooku Jutrzenka Płock Więcej informacji na facebooku Jutrzenka Płock',
     bgImage = '@/assets/hero-bg.jpg'
 } = Astro.props;
 ---
@@ -73,13 +73,15 @@ const {
 
     .info-date {
         text-decoration: underline;
-        font-weight: var(--weight-medium);
+        font-weight: var(--weight-semibold);
     }
 
     .info-content {
-        font-weight: var(--weight-semibold);
+        font-weight: var(--weight-regular);
         display: -webkit-box;
         -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
 
     .news-card--secondary .info-block {
@@ -109,6 +111,7 @@ const {
         }
         .news-card--main .info-content {
             font-size: var(--text-sm);
+            -webkit-line-clamp: 3;
         }
     }
 </style>
