@@ -1,11 +1,46 @@
 ---
 import SectionHeader from "@/components/SectionHeader.astro";
+import { standingsData } from "@/data/standings";
 ---
 
 
 <section class="standings-section">
     <div class="standings-content container">
         <SectionHeader title="Tabela ligowa" kicker="Jak nam idzie?" variant="light"/>
+
+        <div class="table-wrapper">
+            <table class="standings-table">
+                <thead>
+                    <tr>
+                        <th class="col-pos">LP</th>
+                        <th class="col-team">NAZWA DRUŻYNY</th>
+                        <th class="col-desktop">MECZE</th>
+                        <th class="col-pts">PUNKTY</th>
+                        <th class="col-desktop">WYGRANE</th>
+                        <th class="col-desktop">REMISY</th>
+                        <th class="col-desktop">PRZEGRANE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {standingsData.map((team) => (
+                        <tr class={team.isCurrentTeam ? "row-highlight" : ""}>
+                            <td class="col-pos">{team.pos}</td>
+                            <td class="col-team">
+                                <div class="team-info">
+                                    <img src={team.logo} alt="" class="team-crest" width="24" height="24" />
+                                    <span class="team-name">{team.name}</span>
+                                </div>
+                            </td>
+                            <td class="col-desktop">{team.matches}</td>
+                            <td class="col-pts">{team.points}</td>
+                            <td class="col-desktop">{team.won}</td>
+                            <td class="col-desktop">{team.draw}</td>
+                            <td class="col-desktop">{team.lost}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
     </div>
     
 </section>
@@ -18,7 +53,7 @@ import SectionHeader from "@/components/SectionHeader.astro";
                 color-mix(in srgb, var(--color-primary) 90%, transparent),
                 color-mix(in srgb, var(--color-primary) 90%, transparent)
             ),
-            url('@/assets/hero-bg.jpg');
+            url('@/assets/logo.png');
             
         background-size: cover;
         background-position: center;
@@ -27,5 +62,108 @@ import SectionHeader from "@/components/SectionHeader.astro";
     .standings-content {
         display: flex;
         flex-direction: column;
+        gap: var(--space-md);
+        width: 100%;
+    }
+
+    .table-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        font-weight: var(--weight-semibold);
+        letter-spacing: 10%;
+    }
+
+    .standings-table {
+        width: 100%;
+        border-spacing: 0 var(--space-sm);
+        text-align: center;
+        font-size: var(--text-sm);
+    }
+
+    .standings-table th {
+        padding: var(--space-sm);
+        color: var(--color-light);
+        text-transform: uppercase;
+        border-bottom: 2px solid color-mix(in srgb, var(--color-light) 100%, transparent);
+    }
+
+    .standings-table td {
+        padding: var(--space-sm);
+        vertical-align: middle;
+        border-bottom: 2px solid color-mix(in srgb, var(--color-light) 100%, transparent);    
+    }
+
+    .col-team {
+        text-align: left;
+    }
+
+    .team-info {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+    }
+
+    .team-crest {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+    }
+
+    .team-name {
+        white-space: nowrap;
+        font-weight: var(--weight-bold);
+    }
+
+    .col-pts {
+        font-weight: var(--weight-bold);
+    }
+
+    .row-highlight td {
+        background-color: color-mix(in srgb, var(--color-primary-dark) 85%, transparent);
+        border-bottom: 2px solid color-mix(in srgb, var(--color-light) 100%, transparent); 
+    }
+
+    .row-highlight td:first-child {
+        border-top-left-radius: var(--radius-sm);
+        border-bottom-left-radius: var(--radius-sm);
+    }
+
+    .row-highlight .col-pts {
+        border-top-right-radius: var(--radius-sm);
+        border-bottom-right-radius: var(--radius-sm);
+    }
+
+    .col-desktop {
+        display: none;
+    }
+
+    @media (min-width: 1024px) {
+        .standings-table {
+            font-size: var(--text-base);
+            border-spacing: 0 var(--space-xs);
+        }
+
+        .standings-table th, .standings-table td {
+            padding: var(--space-md) var(--space-sm);
+        }
+
+        .row-highlight .col-pts {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .row-highlight td:last-child {
+            border-top-right-radius: var(--radius-sm);
+            border-bottom-right-radius: var(--radius-sm);
+        }
+
+        .team-crest {
+            width: 32px;
+            height: 32px;
+        }
+
+        .col-desktop {
+            display: table-cell;
+        }
     }
 </style>

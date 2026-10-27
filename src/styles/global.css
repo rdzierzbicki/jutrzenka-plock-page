@@ -28,7 +28,7 @@
     --text-base: 1rem;     /* 16px */
     --text-lg: 1.25rem;    /* 20px */
     --text-xl: 1.5rem;     /* 24px */
-    --text-2xl: 2rem;      /* 32px, nagłówki sekcji */
+    --text-2xl: 2rem;      /* 32px */
     --text-display: clamp(8rem, 6rem + 8vw, 10.875rem); /* 128-174px, numery */
 
     --weight-light: 300;
@@ -71,7 +71,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     max-width: var(--container-max);
     margin-inline: auto;
-    padding: var(--space-sm);
+    padding: var(--space-lg);
 }
 
 @media (min-width: 1024px) {
