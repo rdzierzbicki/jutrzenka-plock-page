@@ -1,11 +1,37 @@
 ---
 import SectionHeader from "@/components/SectionHeader.astro";
+import Button from "@/components/Button.astro"
+import PlayerCard from "@/components/PlayerCard.astro";
+
+import { playersData } from "@/data/players";
 ---
 
 
 <section class="team-section">
     <div class="team-content container">
         <SectionHeader title="Drużyna" kicker="Kto u nas gra?" variant="light2"/>
+
+        <div class="carousel-wrapper">
+            <Button href="#" variant="icon" icon="lucide:arrow-left"/>
+
+            <div class="players-grid">
+                {playersData.map((player, index) => (
+          <div class={`player-slot ${index >= 2 ? 'desktop-only' : ''}`}>
+            <PlayerCard {...player} />
+          </div>
+        ))}
+            </div>
+
+            <Button href="#" variant="icon" icon="lucide:arrow-right"/>
+        </div>
+
+        <div class="dots-pagination">
+            <span class="dot"></span>
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
     </div>
     
 </section>
@@ -27,5 +53,40 @@ import SectionHeader from "@/components/SectionHeader.astro";
     .team-content {
         display: flex;
         flex-direction: column;
+        gap: var(--space-md);
+    }
+
+    .carousel-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        gap: var(--space-md);
+    }
+
+    .players-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-md);
+        width: 100%;
+    }
+
+    .desktop-only {
+        display: none;
+    }
+
+    @media (min-width: 1024px) {
+        .team-content {
+            gap: var(--space-xl);
+        }
+
+        .players-grid {
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-lg);
+        }
+
+        .desktop-only {
+            display: block;
+        }
     }
 </style>
