@@ -1,27 +1,158 @@
 ---
-
+import logo from '@/assets/logo.png';
+import Button from '@/components/Button.astro'
 ---
 
 
-<section class="footer-section">
+<footer class="footer-section">
     <div class="footer-content container">
-        <span>MMKS JUTRZENKA PŁOCK</span>
+        <div class="footer-brand">
+            <img src="/assets/logo.png" alt="MMKS Jutrzenka Płock" class="footer-logo" width="70" height="70"/>
+            
+            <div class="footer-info">
+                <h3 class="footer-title">MMKS Jutrzenka Płock</h3>
+                <address class="footer-address">
+                    <span>ul. Miodowa 1, 09-400 Płock</span>
+                    <a href="mailto:mmksjutrzenka@gmail.com" class="footer-contact-link">mmksjutrzenka@gmail.com</a>
+                </address>
+            </div>
+        </div>
+
+        <div class="footer-meta">
+            <div class="social-links">
+                <Button href="#" variant="icon" icon="lucide:tv"/>
+                <Button href="#" variant="icon" icon="lucide:tv"/>
+                <Button href="#" variant="icon" icon="lucide:tv"/>
+            </div>
+
+            <div class="footer-credits">
+                <p class="copyright">&copy; 2026 MMKS Jutrzenka Płock. Wszelkie prawa zastrzeżone.</p>
+                <p class="author">
+                    Projekt i realizacja: 
+                    <a href="mailto:robert.dzierzbicki@gmail.com" class="author-link"> Robert Dzierzbicki</a>
+                </p>
+            </div>
+        </div>
     </div>
-    
-</section>
+</footer>
 
 <style>
     .footer-section {
         display: flex;
-        background-color: var(--color-dark);
-        
+        color: var(--color-light);
+        overflow: hidden;
+        background-image: 
+            linear-gradient(
+                color-mix(in srgb, var(--color-dark) 80%, transparent),
+                color-mix(in srgb, var(--color-dark) 85%, transparent)
+            ),
+            url('@/assets/logo-bw.png');
+
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-size: 320px;
     }
 
     .footer-content {
         display: flex;
         flex-direction: column;
-        min-height: 180px;
-        justify-content: center;
         align-items: center;
+        gap: var(--space-md);
+    }
+    .footer-brand {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .footer-logo {
+        width: 120px;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .footer-title {
+        font-size: var(--text-xl);
+        font-weight: var(--weight-bold);
+        letter-spacing: 10%;
+    }
+
+    .footer-address {
+        display: flex;
+        flex-direction: column;
+        font-style: normal;
+        font-size: var(--text-sm);
+        color: color-mix(in srgb, var(--color-light) 60%, transparent);
+    }
+
+    .footer-contact-link {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .footer-contact-link:hover {
+        color: var(--color-light);
+        text-decoration: underline;
+    }
+
+    .footer-meta {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-md);
+    }
+
+    .social-links {
+        display: flex;
+        flex-direction: row;
+        gap: var(--space-md);
+    }
+
+    .footer-credits {
+        display: flex;
+        flex-direction: column;
+        font-size: var(--text-xs);
+        color: color-mix(in srgb, var(--color-light) 60%, transparent);
+    }
+
+    .footer-credits p {
+        margin: 0;
+    }
+
+    .author-link {
+        color: color-mix(in srgb, var(--color-light) 85%, transparent);
+        text-decoration: none;
+        font-weight: var(--weight-regular);
+    }
+
+    .author-link:hover {
+        text-decoration: underline;
+    }
+
+    @media (min-width: 1024px) {
+        .footer-section {
+            padding: var(--space-xl);
+            background-size: 480px;
+            background-position: left 15% center;
+        }
+
+        .footer-content {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+        }
+
+        .footer-brand {
+            flex-direction: row;
+            gap: var(--space-xxl);
+        }
+
+        .footer-meta {
+            align-items: flex-end;
+            text-align: right;
+            gap: var(--space-md);
+        }
     }
 </style>
