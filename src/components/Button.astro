@@ -9,11 +9,12 @@ import { Icon } from 'astro-icon/components';
 ---
 
 <a href={href} class={`base-btn btn-${variant}`}>
-    <Icon name={icon} size={16} />
+    {icon && <Icon name={icon} size={16}/>}
     <slot/>
 </a>
 
 <style>
+    
     .base-btn {
         display: inline-flex;
         align-items: center;
@@ -35,10 +36,6 @@ import { Icon } from 'astro-icon/components';
         border: 2px solid transparent; 
         box-sizing: border-box;
         transition: all 0.2s ease;
-    }
-
-    .btn-icon-svg {
-        flex-shrink: 0;
     }
 
     .btn-primary {
