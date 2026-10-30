@@ -4,12 +4,14 @@ import { Image } from 'astro:assets';
 
 import logo from '@/assets/logo.png';
 import Button from '@/components/Button.astro'
+
+import { Icon } from 'astro-icon/components';
 ---
 
 <header class="main-header">
     <div class="header-content container">
         <a href="/" class="logo-link">
-            <Image src={logo} alt="MMKS Jutrzenka Płock" width={170} class="logo-image" />
+            <Image src={logo} alt="MMKS Jutrzenka Płock" class="logo-image" />
         </a>
 
         <nav class="desktop-nav">
@@ -29,7 +31,6 @@ import Button from '@/components/Button.astro'
             
             <div class="cta-button">
                 <Button href="#" variant="dark" icon="lucide:ticket">
-                    
                     KUP BILET
                 </Button>
             </div>
@@ -37,10 +38,54 @@ import Button from '@/components/Button.astro'
             <button class="hamburger-btn">☰</button>
         </div>
     </div>
+
+    <div class="mobile-menu is-open">
+        <div class="mobile-menu-container container">
+            <div class="mobile-cta-group ">
+                <a href="#bilety" class="btn-mobile-primary">
+                    <Icon name="lucide:ticket" class="btn-mobile-icon" size={20}/>
+                    <span>KUP BILET</span>
+                </a>
+                <a href="#live" class="btn-mobile-outline">
+                    <Icon name="lucide:tv" class="btn-mobile-icon" size={20}/>
+                    <span>OGLĄDAJ</span>
+                </a>
+            </div>
+
+            <nav class="mobile-nav-links">
+                <a href="#o-nas" class="mobile-nav-link">O NAS</a>
+                <a href="#tabela" class="mobile-nav-link">TABELA</a>
+                <a href="#aktualnosci" class="mobile-nav-link">AKTUALNOŚCI</a>
+                <a href="#mecze" class="mobile-nav-link">MECZE</a>
+                <a href="#kontakt" class="mobile-nav-link">KONTAKT</a>
+            </nav>
+
+            <div class="mobile-socials">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <Icon name="lucide:instagram" />
+                </a>
+                <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                    <Icon name="lucide:video" />
+                </a>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <Icon name="lucide:facebook" />
+                </a>
+            </div>
+        </div>
+    </div>
 </header>
 
 <style>
+    :global(body:has(.mobile-menu.is-open)) {
+        overflow: hidden;
+        touch-action: none;
+    }
+
     .main-header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+
         background-color: var(--color-primary);
         border-bottom: 2px solid var(--color-light);
         height: 80px;
@@ -72,12 +117,124 @@ import Button from '@/components/Button.astro'
     }
 
     .logo-image {
+        width: 130px;
+        height: 130px;
         margin-bottom: -90px;
-        
+        position: relative;
+        z-index: 110;
+    }
+
+    .mobile-menu {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: calc(100dvh - 80px);
+        overflow-y: auto;
+        overflow-x: hidden;
+        overscroll-behavior: contain;
+        z-index: 90;
+
+        background-color: var(--color-primary-dark);
+        background-image: 
+            linear-gradient(
+                color-mix(in srgb, var(--color-primary-dark) 90%, transparent),
+                color-mix(in srgb, var(--color-primary-dark) 90%, transparent)
+            ),
+            url('@/assets/logo-bw.png');
+
+        background-position: center;
+        background-repeat: no-repeat;
+
+        display: none;
+    }
+
+    .mobile-menu.is-open {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .mobile-menu-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .mobile-cta-group {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-md);
+        width: 100%;
+        margin-block: var(--space-xxl);
+    }
+
+    .btn-mobile-primary,
+    .btn-mobile-outline {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-sm);
+        padding: var(--space-sm);
+        border-radius: var(--radius-sm);
+        font-weight: var(--weight-bold);
+        font-size: var(--text-md);
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 10%;
+    }
+
+    .btn-mobile-primary {
+        background-color: var(--color-primary);
+        color: var(--color-light);
+        border: 3px solid var(--color-primary);
+    }
+
+    .btn-mobile-outline {
+        background-color: transparent;
+        color: var(--color-light);
+        border: 3px solid var(--color-light);
+    }
+
+    .btn-icon {
+        font-size: 18px;
+    }
+
+    .mobile-nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-lg);
+        width: 100%;
+    }
+
+    .mobile-nav-link {
+        color: var(--color-light);
+        font-size: var(--text-xl);
+        font-weight: var(--weight-semibold);
+        text-decoration: none;
+        letter-spacing: 10%;
+        border-bottom: 3px solid color-mix(in srgb, var(--color-light) 90%, transparent);
+    }
+
+    .mobile-socials {
+        display: flex;
+        gap: var(--space-lg);
+        padding-top: var(--space-lg);
+    }
+
+    .mobile-socials a {
+        color: var(--color-light);
+        font-size: 26px;
+        display: inline-flex;
     }
 
     @media (min-width: 1024px) {
-        .hamburger-btn {
+        .logo-image {
+            width: 170px;
+            height: 170px;
+        }
+        .hamburger-btn, .mobile-menu,
+        .mobile-menu.is-open {
             display: none; 
         }
 
